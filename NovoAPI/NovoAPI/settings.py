@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'NovoApi_APP',
+    'novo-ort',
 ]
 
 MIDDLEWARE = [
@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'NovoAPI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
+        'HOST': 'novo-ort-parts.cz23siv2qsz3.us-east-2.rds.amazonaws.com',
         'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'rootroot',
-        'NAME': 'novopartsprueba',  #aca voy a tner que poner el nombre de la base de datos cuando la tenga
+        'USER': 'admin',
+        'PASSWORD': 'blEViANe',
+        'NAME': 'novo-ort-parts',  #nombre de la base de datos
         'OPTIONS':{
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }

@@ -9,7 +9,7 @@ import json
 class NovoView(View):
     
     @method_decorator(csrf_exempt) #nos exonera de esta restriccion, para que no salte esta restriccion
-    def  dispatch(self, request, *args, **kwargs) #despachar o enviar y se ejecuta cada vez que hacemos una peticion
+    def  dispatch(self, request, *args, **kwargs): #despachar o enviar y se ejecuta cada vez que hacemos una peticion
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):

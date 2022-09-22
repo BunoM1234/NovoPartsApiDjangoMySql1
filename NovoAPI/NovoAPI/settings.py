@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'novo-ort-parts',
+    'NovoApi_APP'
+    #'novo-ort-parts',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'admin',
         'PASSWORD': 'blEViANe',
-        'NAME': 'novo-ort-parts',  #nombre de la base de datos
+        'NAME': 'alexandria',  #nombre de la base de datos
         'OPTIONS':{
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }

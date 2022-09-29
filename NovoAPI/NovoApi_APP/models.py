@@ -1,5 +1,5 @@
 from django.db import models
-
+#algo
 class novo(models.Model):
 	Part = models.CharField(max_length=150)
 	Code = models.CharField(max_length=150)

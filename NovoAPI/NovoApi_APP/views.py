@@ -13,6 +13,7 @@ class NovoView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
+        print(novo.objects)
         novop = list(novo.objects.values())
         if len(novop) > 0:
             datos = {'message': "Success!" + novo.objects.values}

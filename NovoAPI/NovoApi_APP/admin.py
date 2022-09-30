@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import novo
+from .models import supplier_stock
 
-admin.site.register(novo)
+admin.site.register(supplier_stock)

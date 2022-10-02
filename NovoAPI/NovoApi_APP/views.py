@@ -1,7 +1,7 @@
 #from django.shortcuts import render
 from django.http.response import JsonResponse
 from django.views import View
-from .models import novo
+from .models import supplier_stock
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -13,10 +13,10 @@ class NovoView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
-        print(novo.objects)
-        novop = list(novo.objects.values())
+        novop = list(supplier_stock.objects.values())
+        print(novop)
         if len(novop) > 0:
-            datos = {'message': "Success!" + novo.objects.values}
+            datos = {'message': "Success!" , "novop": novop}
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)

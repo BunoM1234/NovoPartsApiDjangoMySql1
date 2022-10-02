@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-i7ra9jgrg=6t#%*pead&0pkaa(rk#pr%c78^&14ew1@2s7q-_x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+'admin', 
+'127.0.0.1'
+]
 
 
 # Application definition
@@ -37,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'NovoApi_APP'
-    #'novo-ort-parts',
+    'NovoApi_APP',
+    'NovoAPI'
 ]
 
 MIDDLEWARE = [

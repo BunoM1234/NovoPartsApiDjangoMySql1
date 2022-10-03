@@ -17,9 +17,8 @@ class NovoView(View):
         #'BC817RAZ'
         novop = list(supplier_stock.objects.values_list('id', 'stock'))
         #novop = serializers.serialize('json', supplier_stock.objects.raw('SELECT id, code FROM alexandria.supplier_stock LIMIT 0, 1000'))
-        print(novop)
         if len(novop) > 0:
-            datos = {'message': "Success!" , "novop": novop}
+            datos = {"novop": novop}
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)

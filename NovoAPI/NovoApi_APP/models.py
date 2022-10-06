@@ -1,5 +1,8 @@
 from django.db import models
 
+class suppliers(models.Model):
+	class Meta:
+		db_table = 'suppliers'
 
 class supplier_stock(models.Model):
 	class Meta:
@@ -13,39 +16,58 @@ class supplier_stock(models.Model):
 	pkg_type_id = models.IntegerField()
 	supplier_id = models.IntegerField()
 
+class supplier_pkg_type(models.Model):
+	class Meta:
+		db_table = 'supplier_pkg_type'
+
+class parts(models.Model):
+	class Meta:
+		db_table = 'parts'
+	name = models.CharField(max_length=30)
+	uuid = models.CharField(max_length=40)
+	family = models.CharField(max_length=20)
+	description = models.CharField(max_length=200)
+	ns_code = models.CharField(max_length=14)
+	ns_type = models.CharField(max_length=10)
+	ns_rating = models.CharField(max_length=50)
+	ns_status = models.CharField(max_length=100)
+	ns_docs = models.CharField(max_length=20)
+	lifecycle = models.CharField(max_length=20)
+
+class part_purchase(models.Model):
+	class Meta:
+		db_table = 'part_purchase'
+
+class manufacturer(models.Model):
+	class Meta:
+		db_table = 'manufacturer'
+
+class django_migrations(models.Model):
+	class Meta:
+		db_table = 'django_migrations'
+
+class boms(models.Model):
+	class Meta:
+		db_table = 'boms'
+	tag = models.CharField(max_length=250)
+	description = models.CharField(max_length=250)
+	board_id = models.PositiveIntegerField()
+	type_id = models.PositiveIntegerField()
+	uuid = models.CharField(max_length=32)
+	variant = models.CharField(max_length=150)
+	updated_on = models.DateTimeField(auto_now=True)
+
+class bom_types(models.Model):
+	class Meta:
+		db_table = 'bom_types'
+
+class bom_parts(models.Model):
+	class Meta:
+		db_table = 'bom_parts'
+
 class boards(models.Model):
 	class Meta:
 		db_table = 'boards' # nombre de la tabla. En este caso boards
 	code = models.CharField(max_length=256) # nombre de la columna y tipo. En este caso la columna es code y el tipo es char de limit 256
 	description = models.CharField(max_length=256)# nombre de la columna y tipo. En este caso la columna es code y el tipo es char de limit 256
 	revision = models.IntegerField() # columna revision con tipo int. 
-
-class parts(models.Model):
-	class Meta:
-		db_table = 'parts'
-	name = models.CharField(max_length=150)
-
-
-class part_purchase(models.Model):
-	class Meta:
-		db_table = 'part_purchase'
-
-class bom_parts(models.Model):
-	class Meta:
-		db_table = 'bom_parts'
-
-class suppliers(models.Model):
-	class Meta:
-		db_table = 'suppliers'
-
-class manufacturer(models.Model):
-	class Meta:
-		db_table = 'manufacturer'
-
-class boms(models.Model):
-	class Meta:
-		db_table = 'boms'
-
-class boms(models.Model):
-	class Meta:
-		db_table = 'boms'

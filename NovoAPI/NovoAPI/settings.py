@@ -34,14 +34,15 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'NovoApi_APP.apps.NovoapiAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'NovoApi_APP',
-    'NovoAPI'
+    #'NovoApi_APP',
+    #'NovoAPI'
 ]
 
 MIDDLEWARE = [

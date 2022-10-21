@@ -1,7 +1,7 @@
 #from django.shortcuts import render
 from django.http.response import JsonResponse
 from django.views import View
-from .models import supplier_stock
+from .models import manufacturer
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
@@ -15,7 +15,7 @@ class NovoView(View):
 
     def get(self, request):
         #'BC817RAZ'
-        novop = list(supplier_stock.objects.values_list('id', 'stock'))
+        novop = list(manufacturer.objects.values_list('id', 'name'))
         #novop = serializers.serialize('json', supplier_stock.objects.raw('SELECT id, code FROM alexandria.supplier_stock LIMIT 0, 1000'))
         if len(novop) > 0:
             datos = {"novop": novop}

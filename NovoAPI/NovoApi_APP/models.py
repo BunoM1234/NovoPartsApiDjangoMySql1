@@ -45,13 +45,13 @@ class part_purchase(models.Model):
 	class Meta:
 		db_table = 'part_purchase'
 	supplier_code = models.CharField(max_length=50)
-	manufacturer_code = models.CharField(max_length=50)
-	manufacturer_id = models.PositiveIntegerField()
+	manufacturers_code = models.CharField(max_length=50)
+	manufacturers_id = models.PositiveIntegerField()
 	supplier_id = models.PositiveIntegerField()
 
-class manufacturer(models.Model):
+class manufacturers(models.Model):
 	class Meta:
-		db_table = 'manufacturer'
+		db_table = 'manufacturers'
 	name = models.CharField(max_length=150)
 
 class django_migrations(models.Model):

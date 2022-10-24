@@ -1,7 +1,9 @@
 from django.urls import  path
-from .views import NovoView
+from .views import BomsView, ManufacturersView, StockView
 
 urlpatterns=[
-    path('novo/', NovoView.as_view(), name='Novo_list'),
-    path('boms/', NovoView.as_view(), name='boms')
+    path('manufacturers/', ManufacturersView.as_view(), name='Manufacturers_list'),
+    path('boms/', BomsView.as_view(), name='boms_list'),
+    path('stock/', StockView.as_view(), name='stock_list'),
+
 ]

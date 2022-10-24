@@ -54,13 +54,6 @@ class manufacturers(models.Model):
 		db_table = 'manufacturers'
 	name = models.CharField(max_length=150)
 
-class django_migrations(models.Model):
-	class Meta:
-		db_table = 'django_migrations'
-	app = models.CharField(max_length=255)
-	name = models.CharField(max_length=255)
-	applied = models.DateTimeField(6)####aca
-
 class boms(models.Model):
 	class Meta:
 		db_table = 'boms'

@@ -1,7 +1,7 @@
 #from django.shortcuts import render
 from django.http.response import JsonResponse
 from django.views import View
-from .models import boms, manufacturers, supplier_stock
+from .models import boms, manufacturers, supplier_stock, boards
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
@@ -56,6 +56,20 @@ class StockView(View):
         stockp = list(supplier_stock.objects.values_list('stock', 'code', 'price'))
         if len(stockp) > 0:
             datos = {"stock": stockp}
+        else:
+            datos = {'message': "Info not found"}
+        return JsonResponse(datos)
+
+class BoardsView(View):
+    
+    @method_decorator(csrf_exempt) 
+    def  dispatch(self, request, *args, **kwargs): 
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request):
+        boardsp = list(boards.objects.values_list('code', 'description'))
+        if len(boardsp) > 0:
+            datos = {"boards": boardsp}
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)

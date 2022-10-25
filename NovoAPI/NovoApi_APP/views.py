@@ -1,7 +1,7 @@
 #from django.shortcuts import render
 from django.http.response import JsonResponse
 from django.views import View
-from .models import boms, manufacturers, supplier_stock, boards
+from .models import boms, manufacturers, supplier_stock, boards, suppliers
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
@@ -31,6 +31,8 @@ class ManufacturersView(View):
 
     def delete(self, request):
         pass
+def manufacturersID(req, id):
+    return JsonResponse({"id": id})
 
 class BomsView(View):
     
@@ -45,6 +47,8 @@ class BomsView(View):
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
+def bomsID(req, id):
+    return JsonResponse({"id": id})
 
 class StockView(View):
     
@@ -53,12 +57,16 @@ class StockView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
-        stockp = list(supplier_stock.objects.values_list('stock', 'code', 'price'))
+        # s = suppliers(name="HOLA")
+        # s.save()
+        stockp = list(supplier_stock.objects.values_list())
         if len(stockp) > 0:
             datos = {"stock": stockp}
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
+def stockID(req, id):
+    return JsonResponse({"id": id})
 
 class BoardsView(View):
     
@@ -73,3 +81,5 @@ class BoardsView(View):
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
+def boardsID(req, id):
+    return JsonResponse({"id": id})

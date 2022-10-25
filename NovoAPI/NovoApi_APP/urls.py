@@ -1,11 +1,9 @@
 from django.urls import  path
-from .views import BomsView, ManufacturersView, StockView, BoardsView
+from .views import bomsID, manufacturersID, boardsID, stockID
 
 urlpatterns=[
-    path('manufacturers/', ManufacturersView.as_view(), name='manufacturers_list'),
-    path('boms/', BomsView.as_view(), name='boms_list'),
-    path('stock/', StockView.as_view(), name='stock_list'),
-    path('boards/', BoardsView.as_view(), name='boards_list'),
-
-
+    path('manufacturers/<id>', manufacturersID),
+    path('boms/<id>', bomsID),
+    path('boards/<id>', boardsID),
+    path('stock/<id>', stockID),
 ]

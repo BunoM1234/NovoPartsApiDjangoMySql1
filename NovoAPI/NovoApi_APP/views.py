@@ -32,6 +32,7 @@ class ManufacturersView(View):
     def delete(self, request):
         pass
 def manufacturersID(req, id):
+    manufacturers.objects.filter(id=id)
     return JsonResponse({"id": id})
 
 class BomsView(View):
@@ -48,6 +49,7 @@ class BomsView(View):
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
 def bomsID(req, id):
+    boms.objects.filter(id=id)
     return JsonResponse({"id": id})
 
 class StockView(View):
@@ -66,6 +68,7 @@ class StockView(View):
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
 def stockID(req, id):
+    stock.objects.filter(id=id)
     return JsonResponse({"id": id})
 
 class BoardsView(View):
@@ -82,4 +85,5 @@ class BoardsView(View):
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
 def boardsID(req, id):
+    boards.objects.filter(id=id)
     return JsonResponse({"id": id})

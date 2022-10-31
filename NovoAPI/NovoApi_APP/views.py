@@ -42,7 +42,7 @@ class BomsView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
-        bomsp = list(boms.objects.values_list('uuid'))
+        bomsp = list(boms.objects.values_list('uuid', 'id'))
         if len(bomsp) > 0:
             datos = {"boms": bomsp}
         else:

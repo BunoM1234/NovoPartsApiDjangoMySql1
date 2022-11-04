@@ -1,11 +1,26 @@
 #from django.shortcuts import render
 from django.http.response import JsonResponse
 from django.views import View
-from .models import boms, manufacturers, supplier_stock, boards, suppliers
+from .models import auth_user, boms, manufacturers, supplier_stock, boards, suppliers
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
+from django.contrib.auth.models import User
 import json
+
+class UserView(View):
+    
+    @method_decorator(csrf_exempt) 
+    def  dispatch(self, request, *args, **kwargs): 
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request):
+        auth_userp = list(auth_user.objects.values_list('username', 'password', 'email'))
+        if len(auth_userp) > 0:
+            datos = {"user": auth_userp}
+        else:
+            datos = {'message': "Info not found"}
+        return JsonResponse(datos)
 
 class ManufacturersView(View):
     
@@ -31,9 +46,7 @@ class ManufacturersView(View):
 
     def delete(self, request):
         pass
-def manufacturersID(req, id):
-    manufacturers.objects.filter(id=id)
-    return JsonResponse({"id": id})
+
 
 class BomsView(View):
     
@@ -48,9 +61,7 @@ class BomsView(View):
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
-def bomsID(req, id):
-    boms.objects.filter(id=id)
-    return JsonResponse({"id": id})
+
 
 class StockView(View):
     
@@ -67,9 +78,7 @@ class StockView(View):
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
-def stockID(req, id):
-    stock.objects.filter(id=id)
-    return JsonResponse({"id": id})
+
 
 class BoardsView(View):
     
@@ -84,6 +93,3 @@ class BoardsView(View):
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
-def boardsID(req, id):
-    boards.objects.filter(id=id)
-    return JsonResponse({"id": id})

@@ -1,9 +1,25 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 #class django_content_type(models.Model):
 #	class Meta:
 #		db_table = "django_content_type"
 #	name = models.CharField(max_length=100)
+
+class auth_user(models.Model):
+	class Meta:
+		db_table = 'auth_user'
+	password = models.CharField(max_length=128)
+	last_login = models.DateTimeField()
+	is_superuser = models.IntegerField()
+	username = models.CharField(max_length=150)
+	first_name = models.CharField(max_length=150)
+	last_name = models.CharField(max_length=150)
+	email = models.CharField(max_length=254)
+	is_staff = models.IntegerField()
+	is_active = models.IntegerField()
+	date_joined = models.DateTimeField()
 
 class suppliers(models.Model):
 	class Meta:
@@ -85,3 +101,5 @@ class boards(models.Model):
 	code = models.CharField(max_length=256) # nombre de la columna y tipo. En este caso la columna es code y el tipo es char de limit 256
 	description = models.CharField(max_length=256)# nombre de la columna y tipo. En este caso la columna es code y el tipo es char de limit 256
 	revision = models.IntegerField() # columna revision con tipo int. 
+
+

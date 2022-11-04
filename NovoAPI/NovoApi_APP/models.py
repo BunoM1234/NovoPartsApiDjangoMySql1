@@ -1,11 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractBaseUser
 
 
 #class django_content_type(models.Model):
 #	class Meta:
 #		db_table = "django_content_type"
 #	name = models.CharField(max_length=100)
+
+class User(AbstractBaseUser):
+    id = models.CharField(max_length=15, null=False, blank=False, primary_key=True, unique=True)
+
+    USERNAME_FIELD = "id"
 
 class auth_user(models.Model):
 	class Meta:

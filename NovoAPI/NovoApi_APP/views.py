@@ -55,8 +55,6 @@ class StockView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
-        # s = suppliers(name="HOLA")
-        # s.save()
         stockp = list(supplier_stock.objects.values_list())
         if len(stockp) > 0:
             datos = {"stock": stockp}

@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     #'NovoAPI'
 ]
 
-AUTH_USER_MODEL = 'NovoApi_APP.NewUser'
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

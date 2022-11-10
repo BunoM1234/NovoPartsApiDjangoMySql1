@@ -7,14 +7,9 @@ from django.contrib.auth.models import AbstractBaseUser
 #		db_table = "django_content_type"
 #	name = models.CharField(max_length=100)
 
-class User(AbstractBaseUser):
-    id = models.CharField(max_length=15, null=False, blank=False, primary_key=True, unique=True)
-
-    USERNAME_FIELD = "id"
-
-class auth_user(models.Model):
+class Userstest(models.Model):
 	class Meta:
-		db_table = 'auth_user'
+		db_table = 'userstest'
 	password = models.CharField(max_length=128)
 	last_login = models.DateTimeField()
 	is_superuser = models.IntegerField()

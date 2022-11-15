@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import User
 
 
 #class django_content_type(models.Model):
@@ -7,19 +7,19 @@ from django.contrib.auth.models import AbstractBaseUser
 #		db_table = "django_content_type"
 #	name = models.CharField(max_length=100)
 
-class Userstest(models.Model):
-	class Meta:
-		db_table = 'userstest'
-	password = models.CharField(max_length=128)
-	last_login = models.DateTimeField()
-	is_superuser = models.IntegerField()
-	username = models.CharField(max_length=150)
-	first_name = models.CharField(max_length=150)
-	last_name = models.CharField(max_length=150)
-	email = models.CharField(max_length=254)
-	is_staff = models.IntegerField()
-	is_active = models.IntegerField()
-	date_joined = models.DateTimeField()
+# class Userstest(models.Model):
+# 	class Meta:
+# 		db_table = 'userstest'
+# 	password = models.CharField(max_length=128)
+# 	last_login = models.DateTimeField()
+# 	is_superuser = models.IntegerField()
+# 	username = models.CharField(max_length=150)
+# 	first_name = models.CharField(max_length=150)
+# 	last_name = models.CharField(max_length=150)
+# 	email = models.CharField(max_length=254)
+# 	is_staff = models.IntegerField()
+# 	is_active = models.IntegerField()
+# 	date_joined = models.DateTimeField()
 
 class suppliers(models.Model):
 	class Meta:

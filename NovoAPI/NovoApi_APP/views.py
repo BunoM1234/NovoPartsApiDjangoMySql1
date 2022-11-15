@@ -1,7 +1,7 @@
 #from django.shortcuts import render
 from django.http.response import JsonResponse
 from django.views import View
-from .models import Userstest, boms, manufacturers, supplier_stock, boards, suppliers
+from .models import boms, manufacturers, supplier_stock, boards, suppliers
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
@@ -77,16 +77,16 @@ class BoardsView(View):
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
 
-class UsersView(View):
+# class UsersView(View):
     
-    @method_decorator(csrf_exempt) 
-    def  dispatch(self, request, *args, **kwargs): 
-        return super().dispatch(request, *args, **kwargs)
+#     @method_decorator(csrf_exempt) 
+#     def  dispatch(self, request, *args, **kwargs): 
+#         return super().dispatch(request, *args, **kwargs)
 
-    def get(self, request):
-        Userstestp = list(Userstest.objects.values_list('username', 'password'))
-        if len(Userstestp) > 0:
-            datos = {"Userstest": Userstestp}
-        else:
-            datos = {'message': "Info not found"}
-        return JsonResponse(datos)
+#     def get(self, request):
+#         Userstestp = list(Userstest.objects.values_list('username', 'password'))
+#         if len(Userstestp) > 0:
+#             datos = {"Userstest": Userstestp}
+#         else:
+#             datos = {'message': "Info not found"}
+#         return JsonResponse(datos)

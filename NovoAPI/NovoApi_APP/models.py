@@ -7,19 +7,19 @@ from django.contrib.auth.models import User
 #		db_table = "django_content_type"
 #	name = models.CharField(max_length=100)
 
-# class Userstest(models.Model):
-# 	class Meta:
-# 		db_table = 'userstest'
-# 	password = models.CharField(max_length=128)
-# 	last_login = models.DateTimeField()
-# 	is_superuser = models.IntegerField()
-# 	username = models.CharField(max_length=150)
-# 	first_name = models.CharField(max_length=150)
-# 	last_name = models.CharField(max_length=150)
-# 	email = models.CharField(max_length=254)
-# 	is_staff = models.IntegerField()
-# 	is_active = models.IntegerField()
-# 	date_joined = models.DateTimeField()
+class Userstest(models.Model):
+	class Meta:
+		db_table = 'userstest'
+	password = models.CharField(max_length=128)
+	last_login = models.DateTimeField()
+	is_superuser = models.IntegerField()
+	username = models.CharField(max_length=150)
+	first_name = models.CharField(max_length=150)
+	last_name = models.CharField(max_length=150)
+	email = models.CharField(max_length=254)
+	is_staff = models.IntegerField()
+	is_active = models.IntegerField()
+	date_joined = models.DateTimeField()
 
 class suppliers(models.Model):
 	class Meta:
@@ -34,7 +34,7 @@ class supplier_stock(models.Model):
 	code = models.CharField(max_length=50)
 	price = models.DecimalField(max_digits=5, decimal_places=3)
 	updated_on = models.DateTimeField()
-	part_id = models.IntegerField()
+	part = models.ForeignKey('parts', on_delete=models.CASCADE, null = True)
 	pkg_type_id = models.IntegerField(blank=True, null=True, default=1)
 	supplier_id = models.IntegerField(blank=True, null=True, default=2)
 
@@ -91,7 +91,7 @@ class bom_parts(models.Model):
 		db_table = 'bom_parts'
 	quantity = models.PositiveIntegerField()
 	designators = models.CharField(max_length=2000)
-	bom_id = models.PositiveIntegerField()
+	bom = models.ForeignKey('boms', on_delete=models.CASCADE, null = True)
 	part_id = models.PositiveIntegerField()
 
 

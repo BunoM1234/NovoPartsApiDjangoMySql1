@@ -1,5 +1,5 @@
 from django.urls import  path
-from .views import BomsView, ManufacturersView, BoardsView, StockView, UsersView
+from .views import BomsView, ManufacturersView, BoardsView, StockView, UsersView, PartsView, PartPurchaseView
 from django.urls import include
 
 
@@ -9,6 +9,10 @@ urlpatterns=[
     path('boards/', BoardsView.as_view(), name='boards_list'),
     path('stock/', StockView.as_view(), name='stock_list'),
     path('users/', UsersView.as_view(), name='users_list'),
+    path('parts/', PartsView.as_view(), name='parts_list'),
+    path('partpurchase/', PartPurchaseView.as_view(), name='partpurchase_list'),
+
+
     # path('accounts/', include('django.contrib.auth.urls')),
 
 ]

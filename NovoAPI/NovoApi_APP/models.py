@@ -75,7 +75,7 @@ class boms(models.Model):
 		db_table = 'boms'
 	tag = models.CharField(max_length=250)
 	description = models.CharField(max_length=250)
-	board_id = models.PositiveIntegerField()
+	board = models.ForeignKey('boards', on_delete=models.CASCADE, null = True)
 	type_id = models.PositiveIntegerField()
 	uuid = models.CharField(max_length=32)
 	variant = models.CharField(max_length=100)

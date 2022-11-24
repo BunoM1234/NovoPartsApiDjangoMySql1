@@ -102,22 +102,6 @@ class BoardsView(View):
         else:
             datos = {'message': "Info not found"}
         return JsonResponse(datos)
-class BoardInd(View):
-    @method_decorator(csrf_exempt) 
-    def  dispatch(self, request, *args, **kwargs): 
-        return super().dispatch(request, *args, **kwargs)
-        
-    def post(self, request):
-        body_unicode = request.body.decode('utf-8')
-        body = json.loads(body_unicode)
-        boardsp = list(boards.objects.filter(code=body["board"]))
-        print(boardsp)
-        if len(boardsp) > 0:
-            datos = {"boards": boardsp}
-        else:
-            datos = {'message': "Info not found"}
-        print(datos)
-        return JsonResponse(datos)
 
 class UsersView(View):
     

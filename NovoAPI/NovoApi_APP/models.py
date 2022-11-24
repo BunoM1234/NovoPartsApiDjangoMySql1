@@ -2,11 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-#class django_content_type(models.Model):
-#	class Meta:
-#		db_table = "django_content_type"
-#	name = models.CharField(max_length=100)
-
 class Userstest(models.Model):
 	class Meta:
 		db_table = 'userstest'
@@ -62,8 +57,8 @@ class part_purchase(models.Model):
 		db_table = 'part_purchase'
 	supplier_code = models.CharField(max_length=50)
 	manufacturers_code = models.CharField(max_length=50)
-	manufacturers_id = models.PositiveIntegerField()
-	supplier_id = models.PositiveIntegerField()
+	manufacturer_id = models.ForeignKey('manufacturers', on_delete=models.CASCADE, null = True)
+	supplier_id = models.ForeignKey('suppliers', on_delete=models.CASCADE, null = True)
 
 class manufacturers(models.Model):
 	class Meta:
@@ -92,7 +87,7 @@ class bom_parts(models.Model):
 	quantity = models.PositiveIntegerField()
 	designators = models.CharField(max_length=2000)
 	bom = models.ForeignKey('boms', on_delete=models.CASCADE, null = True)
-	part_id = models.PositiveIntegerField()
+	part_id = models.ForeignKey('parts', on_delete=models.CASCADE, null = True)
 
 
 class boards(models.Model):

@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-i7ra9jgrg=6t#%*pead&0pkaa(rk#pr%c78^&14ew1@2s7q-_x
 DEBUG = True
 
 ALLOWED_HOSTS = [
-'admin', 
-'127.0.0.1'
+'*', 
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
+    'corsheaders'
     #'NovoApi_APP',
     #'NovoAPI'
 ]
@@ -54,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'NovoAPI.urls'

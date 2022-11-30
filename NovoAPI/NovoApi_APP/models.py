@@ -82,6 +82,7 @@ class bom_types(models.Model):
 	type = models.CharField(max_length=40)
 
 class bom_parts(models.Model):
+
 	class Meta:
 		db_table = 'bom_parts'
 	quantity = models.PositiveIntegerField()
